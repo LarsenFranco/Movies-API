@@ -132,7 +132,8 @@ server.get('/search', function(req, res){
     getTitle();
 })
 
+
 server.get('/hardcode250', function(req,res){
-    console.log('harcoding')
-    res.send(pelis)
+  console.log('harcoding')
+  res.send(pelis)
 })

@@ -2,10 +2,13 @@ import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Nav = styled.nav`
-background: #150050;
+
+background: rgb(21,0,80);
+background: linear-gradient(0deg, rgba(21,0,80,1) 38%, rgba(11,30,96,1) 100%);
 height: 3.5rem;
 display: flex;
-justify-content: space-between;
+justify-content:  space-between;
+align-items:center;
 padding-left:0.3rem;
 z-index: 1;
 border-radius:20px;
@@ -21,6 +24,7 @@ text-decoration: none;
 padding: 0 1rem;
 height: 100%;
 cursor: pointer;
+margin: 0 0 0 3rem;
 &.active {
     font-weight: 600;
 	font-size:1.39rem;
@@ -31,23 +35,6 @@ cursor: pointer;
 }
 `;
 
-
-export const NavMenu = styled.div`
-
-display: flex;
-align-items: center;
-margin-right: -24px;
-
-@media (max-width: 768px) {
-	display: none;
-}
-`;
-
-export const NavBtn = styled.nav`
-display: flex;
-align-items: center;
-margin: 1rem;
-`;
 
 export const NavBtnLINK = styled(Link)`
  padding: 10px 22px; 
@@ -67,10 +54,9 @@ border-radius:400px;
 
 export const NavInput = styled.input`
 color:white;
-justify-self:flex-end;
 font-size: 1.2rem;
-padding: 10px;
-margin: 10px;
+margin: 1rem;
+height:2rem;
 background: transparent;
 border: 1px solid white;
 border-radius:10px;
@@ -90,4 +76,12 @@ cursor: pointer;
 transition: all 0.2s ease-in-out;
 margin-left: -10px;
 
+
 `;
+
+
+export const NavImg = styled.img`
+width: 3rem;
+height:3rem;
+margin:1rem;
+`

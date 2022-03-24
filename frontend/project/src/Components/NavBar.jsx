@@ -3,12 +3,13 @@ import React, { useState } from "react";
 import {
     Nav,
     NavLink,
-    NavMenu,
-    NavBtn,
-    NavBtnLINK,
     NavInput,
-    NavButton
+    NavButton,
+    NavImg
   } from '../Elements/NavBarEL'
+
+// 
+import icon from "../Imgs/iconpng.png"
 
   function NavBar() {
     let [search, setSearch] =  useState('');
@@ -24,21 +25,26 @@ import {
     }
     
   return (
+  <>
     <Nav>
-    <NavMenu>
-      <NavLink to='/home' activeStyle>
+    <NavImg src={icon} />
+
+      <NavLink to='/home' >
         Home
       </NavLink>
-      <NavLink to='/favs' activeStyle>
+      <NavLink to='/favs' >
         Favs
       </NavLink>
-    </NavMenu>
     
-    <NavBtn>
+
       <NavInput onChange={handleChange} value={search}/>
       <NavButton onClick={handleSubmit}>🔍</NavButton>
-    </NavBtn>
+  
   </Nav>
+  
+  
+  </>
+   
   )
 }
 

@@ -30,7 +30,9 @@ export const CajaItem = styled.li`
 	width: 18rem;
 	height: auto;
 	&:hover{
-		box-shadow: 6px 11px 21px -1px rgba(255,255,255,0.56);
+		-webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 2px 5px 27px 19px rgba(176,190,255,0); 
+box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 2px 5px 27px 19px rgba(176,190,255,0);
+		
 	}
 `
 //! card-image

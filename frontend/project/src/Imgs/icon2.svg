@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #000;
+        stroke-linejoin: round;
+        stroke-width: 4px;
+        font-size: 200px;
+        filter: url(#filter);
+        fill: #fff;
+        text-anchor: middle;
+        font-family: TrajanColor-Concept, "Trajan Color";
+      }
+    </style>
+    <filter id="filter" x="-23" y="6" width="469" height="376" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dy="13" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="5.385"/>
+      <feFlood result="flood" flood-color="#020100" flood-opacity="0.51"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="translate(200.933 337.839) scale(2.06)" style="fill: #fff; filter: url(#filter)">
+    <text id="M" class="cls-1" style="stroke: inherit; filter: none; fill: inherit"><tspan x="0">M</tspan></text>
+  </g>
+  <use transform="translate(200.933 337.839) scale(2.06)" xlink:href="#M" style="stroke: #000; filter: none; fill: none"/>
+</svg>
