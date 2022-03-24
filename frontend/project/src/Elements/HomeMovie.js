@@ -3,7 +3,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 
 export const  Div = styled.div`
-
+width:100%;
 display:flex;
 height: auto; //! CAMBIAR A AUTO
 justify-content:center;

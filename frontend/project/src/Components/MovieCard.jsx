@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Caja, ALink, CajaItem, Img, Title, Button } from "../Elements/Card";
 
 function MovieCard({props}) {
-  let {title, image} = props;
+  let {fullTitle, image} = props;
   let [fav, setFav] = useState(true);
 
   
@@ -12,7 +12,7 @@ function MovieCard({props}) {
         <CajaItem>
           <ALink href="#">
             <Img src={image} />
-            <Title>{title}
+            <Title>{fullTitle}
           </Title>
           {fav?
             <Button onClick={()=> setFav(!fav)}>⭐️</Button> : 

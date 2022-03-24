@@ -24,10 +24,10 @@ function Home() {
     <Text size="2rem">Recomendados:</Text>
    </Div>
   <Div>
-    { pelis.length? pelis.map((peli)=>(
+    { pelis.length && pelis.map((peli)=>(
       <MovieCard key={peli.id} props={peli}> </MovieCard>
     )
-    ):null}
+    )}
   </Div>
   
   </>
