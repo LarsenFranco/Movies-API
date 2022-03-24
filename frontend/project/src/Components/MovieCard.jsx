@@ -1,25 +1,24 @@
 import React, { useState } from "react";
-import { Caja, ALink, CajaItem, Img, Title, Button } from "../Elements/Card";
+import { Caja, Img,MovieInfo, Overview, Title,Vote} from "../Elements/Card";
 
 function MovieCard({props}) {
-  let {fullTitle, image} = props;
+  const path="https://image.tmdb.org/t/p/w1280"
+  let {original_title, poster_path,vote_average,overview} = props;
   let [fav, setFav] = useState(true);
 
   
   return (
     <>
       <Caja>
-        <CajaItem>
-          <ALink href="#">
-            <Img src={image} />
-            <Title>{fullTitle}
-          </Title>
-          {fav?
-            <Button onClick={()=> setFav(!fav)}>⭐️</Button> : 
-            <Button onClick={()=> setFav(!fav)}> ❌ </Button>}
-          </ALink>
-        </CajaItem>
-        
+          <Img src={`${path}${poster_path}`}/>
+          <MovieInfo>
+            <Title>{original_title} </Title>
+            <Vote>{vote_average}</Vote>
+          </MovieInfo>
+          <Overview>
+            <h3>Descripcion:</h3>
+            {overview} 
+            </Overview>
       </Caja>
     </>
   );

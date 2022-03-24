@@ -2,18 +2,29 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 
 
-export const  Div = styled.div`
-width:100%;
-display:flex;
-height: auto; //! CAMBIAR A AUTO
-justify-content:center;
+export const Div = styled.div`
+    display:flex;
+    justify-content:center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
 `;
 
-export const  Text = styled.p`
-display:flex;
-color:white;
-font-family:  sans-serif;
-font-size: ${props => props.size};
+export const Grid = styled.main`
+display: grid ;
+font-family: "Poppins", sans-serif;
+grid-gap:1rem;
+grid-template-columns: repeat(4,4fr);
+grid-template-rows:repeat(1,4fr);
+
+
+`;
+
+
+export const Text = styled.p`
+    display:flex;
+    color:white;
+    font-family:  sans-serif;
+    font-size: ${props => props.size};
 `;
 
 

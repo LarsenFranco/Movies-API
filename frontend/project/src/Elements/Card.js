@@ -1,77 +1,63 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
-//! CardList
-export const Caja = styled.ul`
-	display: inline-flex;
-	/* background-color:yellow; */
-	
-	height:35rem;
-	width:24%;
-	margin: 1.6rem auto;
-	padding: 0;
-	font-size: 0;
-	text-align: center;
-	list-style: none;
-	transition: transform 0.3s ease-in-out;
-	&:hover{
-		transform: translateY(-0.5rem) scale(1.01);
-		
-	}
-`;
-//! Card
-export const CajaItem = styled.li`
-	background-color:#150050;
-	display: flex;
-	flex-direction:column;
-	border-radius:1rem;
-	padding:1rem;
-	margin: 1rem;
-	font-size: 1rem;
-	width: 18rem;
-	height: auto;
-	&:hover{
-		-webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 2px 5px 27px 19px rgba(176,190,255,0); 
-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 2px 5px 27px 19px rgba(176,190,255,0);
-		
-	}
-`
-//! card-image
-export const ALink = styled.a`
-	/* background-color:blue; */
-	display: block;
-	text-decoration:none;
-	
+
+
+export const  Overview = styled.div` 
+ 	background-color: #fff;
+    padding: 2rem;
+    position: absolute;
+    max-height: 100%;
+    overflow: auto;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
 `
 
-export const Img = styled.img`
-	width: 98%;
-	height: 24rem;
-	border-radius:20px;
+export const  Img = styled.img` 
+ max-width: 100%;
+ max-height: 100%;
 `
-export const Title = styled.h1`
-font-size:1.5rem;
-font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-color:white;
-text-decoration:none;
+
+export const  Caja = styled.div` 
+ 	background-color:#373b69;
+    border-radius: 10px;
+    box-shadow: 5 4px 5px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+    margin: 1rem;
+    width: 90%;
+    &:hover  {${Overview}{
+        transform: translateY(0);}
+        ${Img}{
+            filter: blur(.5rem);
+        }
+    }
+
+    
+    
 `
 
 
-
-export const Button = styled.button`
-font-size:2rem;
-background: none;
-border: 0;
-color: inherit;
-font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-&:hover{
-	transform: scale(1.5);
-	transition: transform 0.3s ease-in-out;
-}
-
+export const  MovieInfo = styled.div` 
+	color: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1rem 1rem;
+    letter-spacing: 0.5px;
+`
+export const  Title = styled.h3` 
+	margin: 0;
 `
 
-//REFERENCIAS> https://codepen.io/derekmorash/pen/NjBvdX
-export const Descr = styled.span`
-font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-color:white;
+export const  Vote = styled.span` 
+	color:green;
+ 	background-color: #22254b;
+    border-radius: 3px;
+    font-weight: bold;
+    padding: 0.25rem 0.5rem;
 `
+
+
