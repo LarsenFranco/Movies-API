@@ -9,7 +9,9 @@ server.listen(8000, () => console.log("Server arriba en " + "http://localhost:80
 
 let cors = require('cors');
 const axios = require('axios').default;
-const {_KEY} = require("../Api_key")
+//const {_KEY} = require("../Api_key")
+const _KEY =  "04c35731a5ee918f014970082a0088b1"
+
 server.use(cors());
 
 
