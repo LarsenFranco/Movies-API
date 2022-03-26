@@ -53,11 +53,31 @@ export const  Title = styled.h3`
 `
 
 export const  Vote = styled.span` 
-	color:green;
+	color:${prop=> prop.color? prop.color : "blue"};
  	background-color: #22254b;
     border-radius: 3px;
     font-weight: bold;
     padding: 0.25rem 0.5rem;
 `
 
+export const Button = styled.button`
+  text-decoration: none;
+  border: none;
+  background-color: #373b69;
+   color:white;
+   font-size:0.9rem;
+   border-radius:20px;
+   width:auto;
+   padding:10px;
+   margin:10px;
+  &:hover{
 
+    transform: scale(1.1);
+
+  }
+
+ 
+
+
+
+`

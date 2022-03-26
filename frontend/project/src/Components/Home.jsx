@@ -6,6 +6,7 @@ import { Div, Text,Grid } from "../Elements/HomeMovie";
 
 function Home() {
   const [pelis, setpelis] = useState([]);
+  
   async function getMovies() {
     const request = await axios.get("http://localhost:8000/");
     setpelis(request.data.results);
@@ -16,14 +17,12 @@ function Home() {
   return (
     <>
       <Div>
-        <Text size="2rem">Recomendados:</Text>
+        <Text size="2rem">Recommended:</Text>
       </Div>
       <Grid>
         {pelis.length &&
           pelis.map((peli) => (
-            <MovieCard key={peli.id} props={peli}>
-              {" "}
-            </MovieCard>
+            <MovieCard key={peli.id} props={peli}/>
           ))}
       </Grid>
     </>

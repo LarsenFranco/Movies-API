@@ -1,16 +1,19 @@
 import { NavLink as Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const Nav = styled.nav`
 
+
+export const Div = styled.div`
+display:flex;
+justify-self:center;
+margin-left:${props => props.margL? props.margL: 0}
+`
+export const Nav = styled.div`
+display: flex;
 background: rgb(21,0,80);
 background: linear-gradient(0deg, rgba(21,0,80,1) 38%, rgba(11,30,96,1) 100%);
 height: 3.5rem;
-display: flex;
-justify-content:  space-between;
 align-items:center;
-padding-left:0.3rem;
-z-index: 1;
 border-radius:20px;
 font-size:1.2rem;
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,8 +21,6 @@ font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 export const NavLink = styled(Link)`
 color: white;
-display: flex;
-align-items: center;
 text-decoration: none;
 padding: 0 1rem;
 height: 100%;
@@ -75,8 +76,6 @@ border: none;
 cursor: pointer;
 transition: all 0.2s ease-in-out;
 margin-left: -10px;
-
-
 `;
 
 
