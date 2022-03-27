@@ -5,7 +5,7 @@ const server = express();
 
 server.use(express.json());
 
-server.listen(8000, () => console.log("Server arriba en " + "http://localhost:8000/"));
+
 
 let cors = require('cors');
 const axios = require('axios').default;
@@ -30,7 +30,7 @@ const imgPath = "https://image.tmdb.org/t/p/w1280"; //! añadimos poster_path al
 server.get('/', function (req, res) {
     
   console.log(`Status ok en / `)
-    axios.get(popularMovie+"2")
+    axios.get(popularMovie+"1")
         .then((resp) => {
             console.log('Consulta API ok')
             res.json(resp.data)
@@ -41,7 +41,7 @@ server.get('/', function (req, res) {
         })     
 })
 
-
+server.listen(8000, () => console.log("Server arriba en " + "http://localhost:8000/"));
 
 
 

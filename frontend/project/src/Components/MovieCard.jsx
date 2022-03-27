@@ -19,8 +19,12 @@ function MovieCard({props}) {
    }
 
 
-   
 
+ 
+   
+const onClickFav = () =>{
+  setFav({...fav,state:!fav.state})
+}
   
   return (
     <>
@@ -31,7 +35,7 @@ function MovieCard({props}) {
             <Vote color={setColorByVote(vote_average)}>{vote_average}</Vote>
           </MovieInfo>
             <Overview>
-              <Button  onClick={()=>setFav({...fav,state:!fav.state}) }>{fav.state?fav.text:fav.text2}</Button>
+              <Button  onClick={onClickFav }>{fav.state?fav.text:fav.text2}</Button>
               <Button   onClick={()=>setLike({...like,state:!like.state})}>{like.state?like.text:like.text2}</Button>
               <h3>Description:</h3>
               {overview} 

@@ -12,8 +12,16 @@ function Home() {
     setpelis(request.data.results);
   }
 
-  getMovies();
-
+ 
+  useEffect(() => {
+    getMovies()
+    return () => {
+      alert("Guardando info")
+      //Mandamos 
+    }
+  },[])
+  
+  
   return (
     <>
       <Div>
