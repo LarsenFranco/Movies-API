@@ -12,7 +12,9 @@ function Home() {
     setpelis(request.data.results);
   }
 
-  getMovies();
+  useEffect(() => {
+    getMovies();
+  });
 
   return (
     <>
