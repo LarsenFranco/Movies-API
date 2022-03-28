@@ -16,11 +16,9 @@ function Home() {
   useEffect(() => {
     getMovies()
     return () => {
-      alert("Guardando info")
-      //Mandamos 
+      alert("Guardando info") 
     }
   },[])
-  
   
   return (
     <>
