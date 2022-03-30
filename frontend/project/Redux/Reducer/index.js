@@ -1,10 +1,11 @@
 const favoritos = [];
 
-const listaFavs = (state = favoritos, action) => {
+const listaFavs = (state= favoritos, action) => {
     switch(action.type) {
       case "addFavorite":
-        return [...state,state.push(action.payload)];
-  
+       state.push(action.payload.peli)
+        return state ;
+      
      
       default: return state;
     }    

@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import axios from "axios";
-
+import { useSelector } from "react-redux";
 import { Div, Text,Grid } from "../Elements/HomeMovie";
 
-function Home() {
+function Favorites() {
   const [pelis, setpelis] = useState([]);
-  
-  async function getMovies() {
-    const request = await axios.get("http://localhost:8000/");
-    setpelis(request.data.results);
+  const favs = useSelector((state) => state);
+ 
+   function getMovies() {
+    setpelis(favs);
   }
 
  
   useEffect(() => {
     getMovies()
     return () => {
-     
+      
     }
   },[])
   
   return (
     <>
       <Div>
-        <Text size="2rem">Recommended:</Text>
+        <Text size="2rem">Favoritas:</Text>
       </Div>
       <Grid>
         {pelis.length &&
@@ -35,4 +35,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Favorites;
