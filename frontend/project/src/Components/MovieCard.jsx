@@ -41,7 +41,7 @@ function MovieCard({ props }) {
   };
 
    const onClickFav = () => {
-     dispatch(addFavorite(props));
+     dispatch(addFavorite({from:"fav",...props}));
   
   };
 

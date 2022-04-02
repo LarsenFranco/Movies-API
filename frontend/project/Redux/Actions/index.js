@@ -18,3 +18,10 @@ export const setMovies = (movies) => {
         payload:movies
     }
 };
+
+export const setSearchs = (movies) => {
+    return {
+        type: "setSearchs",
+        payload:movies
+    }
+};

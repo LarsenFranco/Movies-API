@@ -54,8 +54,11 @@ function App() {
 
   useEffect(() => {
     getMovies(page);
-    console.log(moviesInStore)
   }, [page]);
+
+  useEffect(() => {
+  
+  }, [moviesInStore.moviesSearch]);
 
   return (
     <>
@@ -65,12 +68,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home movies={moviesInStore.moviesView} />} />
           <Route path="/favs" element={<Home movies={moviesFavs} />} />
+          <Route path="/search" element={<Home movies={moviesInStore.moviesSearch} />} />
+
         </Routes>
        
         <FloatButtonBtn disp={btnUp} onClick={() => toUp()}>
-          {" "}
-          <FloatButtonImg src={arrow} />{" "}
+          <FloatButtonImg src={arrow} />
         </FloatButtonBtn>
+       
         {moviesInStore.from !== "search" ? (
           <NumsPagesContainer>
             <Button onClick={() => turnPage("s")}>Start</Button>
@@ -99,6 +104,8 @@ function App() {
             <Button onClick={() => turnPage("e")}>End</Button>
           </NumsPagesContainer>
         ) : null}
+
+
       </Div>
     </>
   );

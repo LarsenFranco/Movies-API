@@ -1,10 +1,11 @@
 let pelis={
-  favoritos: {results:["favorito"]},
-  moviesView:[]
+  favoritos: {results:[]},
+  moviesView:[],
+  moviesSearch:[]
 }
 
 const moviesToRender = (state = pelis, action) => {
-  let {favoritos, moviesView} = pelis
+  let {favoritos, moviesView,moviesSearch} = pelis
  
   switch (action.type) {
     case "addFavorite":
@@ -28,6 +29,14 @@ const moviesToRender = (state = pelis, action) => {
       state={...state,moviesView}
       return state
     default: return state;
+
+
+    case "setSearchs":
+      console.log(action.payload)     
+        moviesSearch.push({...action.payload})
+        state={...state,moviesSearch}
+      
+      return state;
   }
 }
 
