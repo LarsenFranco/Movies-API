@@ -14,8 +14,12 @@ import {
 
 function MovieCard({ props }) {
   let { original_title, poster_path, vote_average, overview, id } = props;
-  const path = "https://image.tmdb.org/t/p/w1280";
+  let path = "https://image.tmdb.org/t/p/w1280";
 
+  if(!poster_path){
+    path="https://image.shutterstock.com"
+    poster_path="/image-vector/picture-vector-icon-no-image-260nw-1732584341.jpg"
+  }
 
 
   let [btnFav, setBtnFav] = useState({

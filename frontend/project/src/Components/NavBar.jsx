@@ -15,12 +15,13 @@ import { useDispatch, useSelector } from "react-redux";
 
 function NavBar() {
   let [search, setSearch] = useState("");
+
   const dispatch=useDispatch();
   
   async function getSearch(str) {
     scrollTo(0, 0);
     const request = await axios.get(`http://localhost:8000/search?search=${str}`);
-    dispatch(setMovies(request.data.results))       
+    dispatch(setMovies(request.data))       
   }
 
   function handleChange(e) {
@@ -31,6 +32,9 @@ function NavBar() {
     getSearch(search);
     setSearch("");
   }
+
+
+
 
   return (
     <>

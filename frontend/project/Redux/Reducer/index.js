@@ -2,8 +2,10 @@ let pelis={
   favoritos: [],
   moviesView:[]
 }
+
 const moviesToRender = (state = pelis, action) => {
   let {favoritos, moviesView} = pelis
+ 
   switch (action.type) {
     case "addFavorite":
       console.log("fav"+action.payload.peli.id)
@@ -18,7 +20,7 @@ const moviesToRender = (state = pelis, action) => {
 
     case "setMovies":
 
-      moviesView=[...action.payload]
+      moviesView=action.payload
       
       return moviesView
     default: return state;

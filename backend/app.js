@@ -1,4 +1,4 @@
-
+//*   DOCUMENTACION DE API : https://developers.themoviedb.org/3
 const express = require("express");
 
 const server = express();
@@ -33,7 +33,7 @@ server.get('/', function (req, res) {
   console.log(`Status ok en / `)
     axios.get(popularMovie+page)
         .then((resp) => {
-            console.log('Consulta API ok - hora: '+Date.now())
+            console.log('Consulta API ok - orden: '+(Date.now()))
             res.json(resp.data)
         }
         ).catch((e)=>{
