@@ -21,7 +21,7 @@ function NavBar() {
   async function getSearch(str) {
     scrollTo(0, 0);
     const request = await axios.get(`http://localhost:8000/search?search=${str}`);
-    dispatch(setMovies(request.data))       
+    dispatch(setMovies({from:"search",...request.data}))       
   }
 
   function handleChange(e) {
@@ -44,8 +44,8 @@ function NavBar() {
         </Div>
         
         <Div>
-          <NavLink to="/">Home</NavLink>
-          
+          <NavLink to="/">Home</NavLink>          
+          <NavLink to="/favs">Favs</NavLink>          
         </Div>
 
         <Div margL="auto" > 

@@ -3,11 +3,16 @@ import { Div, Text, Grid } from "../Elements/HomeMovie";
 
 
 function Home(props) {
-  let {results} = props.movies;
+  let {results, from, movies} = props.movies;
+  let title="Most Popular:"
+  if(results[0]==="favorito"){
+    title="Favorites"
+    results.shift();
+  }
   return (
     <>
       <Div>
-        <Text size="2rem">Most Popular:</Text>
+        {from==="search"?<Text size="2rem">Coincidences:</Text>:<Text size="2rem">{title}</Text>}        
         {results && (
           <Div>
             <Grid>
@@ -15,9 +20,7 @@ function Home(props) {
                 results.map((peli) => <MovieCard key={peli.id} props={peli} />)}
             </Grid>
           </Div>
-        )}
-
-        
+        )}        
       </Div>
     </>
   );

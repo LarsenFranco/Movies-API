@@ -9,13 +9,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMovies } from "../Redux/Actions";
 import axios from "axios";
 import { Button } from "./Elements/Card";
-import { Div, NumsPagesContainer,NumPage } from "./Elements/HomeMovie";
+import { Div, NumsPagesContainer, NumPage } from "./Elements/HomeMovie";
 
 function App() {
   const dispatch = useDispatch();
   let moviesInStore = useSelector((store) => store);
+  let moviesFavs = useSelector((store) => store.favoritos);
   let [btnUp, setBtnUp] = useState("none");
   let [page, setPage] = useState(1);
+
   const turnPage = (value) => {
     switch (value) {
       case "e":
@@ -52,28 +54,51 @@ function App() {
 
   useEffect(() => {
     getMovies(page);
+    console.log(moviesInStore)
   }, [page]);
-
-
-
 
   return (
     <>
-        <NavBar />
+      <NavBar />
       <Div>
+       
         <Routes>
-          <Route path="/" element={<Home movies={moviesInStore}/>} />
+          <Route path="/" element={<Home movies={moviesInStore.moviesView} />} />
+          <Route path="/favs" element={<Home movies={moviesFavs} />} />
         </Routes>
-        <FloatButtonBtn disp={btnUp} onClick={()=> toUp()}> <FloatButtonImg src={arrow}/>  </FloatButtonBtn>
-        
-        <NumsPagesContainer>
-          <Button        onClick={() => turnPage("s")}>Start</Button>
-          <NumPage   disp={page-1>0?"":"none"}      onClick={() => turnPage(page-1)} > {page-1>=1?page-1:null} </NumPage>
-          <NumPage  col={"red"} disp={page!==1?"":"none"}      onClick={() => turnPage(page)}> {page!==1?page:null}  </NumPage>
-          <NumPage   disp={page+1>500?"none":""}     onClick={() => turnPage(page+1)} > {page+1>500?null:page+1} </NumPage>
-          <Button         onClick={() => turnPage("e")}>End</Button>
-        </NumsPagesContainer>
-      
+       
+        <FloatButtonBtn disp={btnUp} onClick={() => toUp()}>
+          {" "}
+          <FloatButtonImg src={arrow} />{" "}
+        </FloatButtonBtn>
+        {moviesInStore.from !== "search" ? (
+          <NumsPagesContainer>
+            <Button onClick={() => turnPage("s")}>Start</Button>
+            <NumPage
+              disp={page - 1 > 0 ? "" : "none"}
+              onClick={() => turnPage(page - 1)}
+            >
+
+              {page - 1 >= 1 ? page - 1 : null}{" "}
+            </NumPage>
+            <NumPage
+              col={"red"}
+              disp={page !== 1 ? "" : "none"}
+              onClick={() => turnPage(page)}
+            >
+
+              {page !== 1 ? page : null}{" "}
+            </NumPage>
+            <NumPage
+              disp={page + 1 > 500 ? "none" : ""}
+              onClick={() => turnPage(page + 1)}
+            >
+
+              {page + 1 > 500 ? null : page + 1}{" "}
+            </NumPage>
+            <Button onClick={() => turnPage("e")}>End</Button>
+          </NumsPagesContainer>
+        ) : null}
       </Div>
     </>
   );

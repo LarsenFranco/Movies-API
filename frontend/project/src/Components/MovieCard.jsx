@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addFavorite } from "../../Redux/Actions";
 
 import {
   Caja,
@@ -15,7 +17,8 @@ import {
 function MovieCard({ props }) {
   let { original_title, poster_path, vote_average, overview, id } = props;
   let path = "https://image.tmdb.org/t/p/w1280";
-
+  const dispatch=useDispatch();
+  
   if(!poster_path){
     path="https://image.shutterstock.com"
     poster_path="/image-vector/picture-vector-icon-no-image-260nw-1732584341.jpg"
@@ -37,10 +40,10 @@ function MovieCard({ props }) {
     return colorResult;
   };
 
-  // const onClickFav = () => {
-  //    dispatch(addFavorite({ original_title, poster_path, vote_average, overview, id }));
+   const onClickFav = () => {
+     dispatch(addFavorite(props));
   
-  // };
+  };
 
   const onClickLike = () => {
     setLike({ state: !like.state });
@@ -55,7 +58,7 @@ function MovieCard({ props }) {
           <Vote color={setColorByVote(vote_average)}>{vote_average}</Vote>
         </MovieInfo>
         <Overview>
-        <Button onClick={()=> alert("Agregada")}>Fav</Button>             
+        <Button onClick={()=> onClickFav()}>Fav</Button>             
           <Button onClick={onClickLike}>
             {like.state ? "Like":"UnLike"}
           </Button>

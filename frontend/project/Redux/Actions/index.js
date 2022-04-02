@@ -2,7 +2,7 @@
 export const addFavorite = (peli) => {
     return {
         type: "addFavorite",
-        payload:{peli}
+        payload:peli
     }
 };
 export const removeFav = (id) => {
