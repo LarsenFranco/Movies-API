@@ -27,3 +27,26 @@ export const Text = styled.p`
 `;
 
 
+export const NumsPagesContainer = styled.div`
+    display:flex;
+    flex-direction:row;
+`;
+
+export const NumPage = styled.button`
+    display:${(props)=>props.disp?props.disp:""};
+    margin:0.5rem;
+    font-size:1.2rem;
+    color:${(props)=>props.col?props.col:"white"};;
+    font-family: monospace;
+    background: transparent;
+    border:none;
+  &:hover{
+    transform: scale(1.6);
+	transition: all 200ms ease-in;
+  cursor:pointer;
+  }
+`;
+
+
+
+

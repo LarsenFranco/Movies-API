@@ -1,15 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import { Div, Text, Grid } from "../Elements/HomeMovie";
 
 
 function Home(props) {
-
   let {results} = props.movies;
-
-
- 
-
   return (
     <>
       <Div>

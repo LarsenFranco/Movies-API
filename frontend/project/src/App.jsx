@@ -9,29 +9,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { setMovies } from "../Redux/Actions";
 import axios from "axios";
 import { Button } from "./Elements/Card";
-import { Div } from "./Elements/HomeMovie";
+import { Div, NumsPagesContainer,NumPage } from "./Elements/HomeMovie";
 
 function App() {
+  const dispatch = useDispatch();
   let moviesInStore = useSelector((store) => store);
-
   let [btnUp, setBtnUp] = useState("none");
-
-  let dispatch = useDispatch();
-  
   let [page, setPage] = useState(1);
   const turnPage = (value) => {
     switch (value) {
-      case "+":
+      case "e":
         if (page < 500) {
-          setPage(page + 1);
+          setPage(499);
         }
         break;
-      case "-":
+      case "s":
         if (page > 1) {
-          setPage(page - 1);
+          setPage(1);
         }
         break;
       default:
+        setPage(value);
         break;
     }
   };
@@ -42,7 +40,6 @@ function App() {
       setBtnUp("none");
     }
   };
-
   function toUp() {
     scrollTo(0, 0);
   }
@@ -54,12 +51,10 @@ function App() {
   }
 
   useEffect(() => {
-    getMovies(1);
-  }, []);
-
-  useEffect(() => {
     getMovies(page);
   }, [page]);
+
+
 
 
   return (
@@ -71,10 +66,14 @@ function App() {
         </Routes>
         <FloatButtonBtn disp={btnUp} onClick={()=> toUp()}> <FloatButtonImg src={arrow}/>  </FloatButtonBtn>
         
-        <Div dir={"row"}>
-            <Button onClick={() => turnPage("-")}>PREV</Button>
-            <Button onClick={() => turnPage("+")}>NEXT</Button>
-          </Div>
+        <NumsPagesContainer>
+          <Button        onClick={() => turnPage("s")}>Start</Button>
+          <NumPage   disp={page-1>0?"":"none"}      onClick={() => turnPage(page-1)} > {page-1>=1?page-1:null} </NumPage>
+          <NumPage  col={"red"} disp={page!==1?"":"none"}      onClick={() => turnPage(page)}> {page!==1?page:null}  </NumPage>
+          <NumPage   disp={page+1>500?"none":""}     onClick={() => turnPage(page+1)} > {page+1>500?null:page+1} </NumPage>
+          <Button         onClick={() => turnPage("e")}>End</Button>
+        </NumsPagesContainer>
+      
       </Div>
     </>
   );
