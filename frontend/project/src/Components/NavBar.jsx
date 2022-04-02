@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import {
   Nav,
   NavLink,
@@ -8,20 +7,29 @@ import {
   NavImg,
   Div,
 } from "../Elements/NavBarEL";
-
+import {setMovies} from '../../Redux/Actions'
 
 import icon from "../Imgs/iconpng.png";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 
 function NavBar() {
   let [search, setSearch] = useState("");
+  const dispatch=useDispatch();
+  
+  async function getSearch(str) {
+    scrollTo(0, 0);
+    const request = await axios.get(`http://localhost:8000/search?search=${str}`);
+    dispatch(setMovies(request.data.results))       
+  }
 
   function handleChange(e) {
     setSearch(e.target.value);
   }
 
   function handleSubmit() {
-    //fetch con search
-    alert("valor de search " + search);
+    getSearch(search);
+    setSearch("");
   }
 
   return (
@@ -38,7 +46,7 @@ function NavBar() {
 
         <Div margL="auto" > 
           <NavInput onChange={handleChange} value={search} />
-          <NavButton onClick={handleSubmit}>🔍</NavButton>
+          <NavButton onClick={handleSubmit}  >🔍</NavButton>
         </Div>
       </Nav>
  

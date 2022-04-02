@@ -5,7 +5,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 export const Div = styled.div`
 display:flex;
 align-items:center;
-flex-direction:column;
+flex-direction:${(props)=>props.dir?props.dir:"column"};
   padding:1rem;
 `;
 

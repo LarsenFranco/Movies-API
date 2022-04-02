@@ -18,7 +18,7 @@ server.use(cors());
 
 
 const popularMovie = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${_KEY}&page=` //!indicamos nº de pag
-const searchMovie = `"https://api.themoviedb.org/3/search/movie?&api_key=${_KEY}&query=";` //! pasamos por query la busqueda
+const searchMovie = `https://api.themoviedb.org/3/search/movie?&api_key=${_KEY}&query=;` //! pasamos por query la busqueda
 const imgPath = "https://image.tmdb.org/t/p/w1280"; //! añadimos poster_path al final 
 
 
@@ -33,7 +33,7 @@ server.get('/', function (req, res) {
   console.log(`Status ok en / `)
     axios.get(popularMovie+page)
         .then((resp) => {
-            console.log('Consulta API ok')
+            console.log('Consulta API ok - hora: '+Date.now())
             res.json(resp.data)
         }
         ).catch((e)=>{
@@ -41,6 +41,27 @@ server.get('/', function (req, res) {
           res.status(404).send(e);
         })     
 })
+
+
+
+
+server.get('/search', function (req, res) {
+  let {search} = req.query;
+
+console.log(`Status ok en /search ->`+search)
+  axios.get(searchMovie+search)
+      .then((resp) => {          
+          res.json(resp.data)
+      }
+      ).catch((e)=>{
+          console.log(`Error ${e.message}`)
+        res.status(404).send(e);
+      })     
+})
+
+
+
+
 
 server.listen(8000, () => console.log("Server arriba en " + "http://localhost:8000/"));
 
