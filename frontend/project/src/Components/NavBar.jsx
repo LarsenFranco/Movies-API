@@ -33,7 +33,7 @@ function NavBar() {
         
         <Div>
           <NavLink to="/">Home</NavLink>
-          <NavLink to="/favs">Favs</NavLink>
+          
         </Div>
 
         <Div margL="auto" > 

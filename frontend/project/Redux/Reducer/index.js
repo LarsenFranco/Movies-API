@@ -1,14 +1,28 @@
-const favoritos = [];
+let pelis={
+  favoritos: [],
+  moviesView:[]
+}
+const moviesToRender = (state = pelis, action) => {
+  let {favoritos, moviesView} = pelis
+  switch (action.type) {
+    case "addFavorite":
+      console.log("fav"+action.payload.peli.id)
+      favoritos.push(action.payload.peli)
+      return favoritos;
+    
+      case "removeFav": 
+      favoritos=favoritos.filter((p)=>p.id !== action.payload)
+      return favoritos;
+   
+    //! ------------------------  
 
-const listaFavs = (state= favoritos, action) => {
-    switch(action.type) {
-      case "addFavorite":
-       state.push(action.payload.peli)
-        return state ;
+    case "setMovies":
+
+      moviesView=[...action.payload]
       
-     
-      default: return state;
-    }    
+      return moviesView
+    default: return state;
   }
-  
-  export default listaFavs;
+}
+
+export default moviesToRender;

@@ -29,6 +29,7 @@ margin: 0 0 0 3rem;
 &.active {
     font-weight: 600;
 	font-size:1.39rem;
+
 }
 &:hover{
 	transform: scale(1.3);

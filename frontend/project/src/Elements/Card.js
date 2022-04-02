@@ -6,7 +6,7 @@ export const  Overview = styled.div`
  	background-color: #fff;
     padding: 2rem;
     position: absolute;
-    max-height: 100%;
+    max-height: 90%;
     overflow: auto;
     left: 0;
     bottom: 0;
@@ -34,7 +34,6 @@ export const  Caja = styled.div`
             filter: blur(.5rem);
         }
     }
-
     
     
 `
@@ -71,13 +70,7 @@ export const Button = styled.button`
    padding:10px;
    margin:10px;
   &:hover{
-
     transform: scale(1.1);
-
   }
-
  
-
-
-
 `

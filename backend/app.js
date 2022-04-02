@@ -28,9 +28,10 @@ const imgPath = "https://image.tmdb.org/t/p/w1280"; //! añadimos poster_path al
 
 
 server.get('/', function (req, res) {
-    
+    let {page} = req.query;
+    page>0 || page>500?null:page=1;
   console.log(`Status ok en / `)
-    axios.get(popularMovie+"1")
+    axios.get(popularMovie+page)
         .then((resp) => {
             console.log('Consulta API ok')
             res.json(resp.data)
