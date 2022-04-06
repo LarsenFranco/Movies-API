@@ -15,19 +15,20 @@ function App() {
   const dispatch = useDispatch();
   let moviesInStore = useSelector((store) => store);
   let moviesFavs = useSelector((store) => store.favoritos);
+
   let [btnUp, setBtnUp] = useState("none");
   let [page, setPage] = useState(1);
 
   const turnPage = (value) => {
     switch (value) {
-      case "e":
+      case "+":
         if (page < 500) {
-          setPage(499);
+          setPage(page+=1);
         }
         break;
-      case "s":
+      case "-":
         if (page > 1) {
-          setPage(1);
+          setPage(page-=1);
         }
         break;
       default:
@@ -35,6 +36,7 @@ function App() {
         break;
     }
   };
+
   window.onscroll = function () {
     if (window.pageYOffset >= 400) {
       setBtnUp("");
@@ -42,9 +44,11 @@ function App() {
       setBtnUp("none");
     }
   };
+
   function toUp() {
     scrollTo(0, 0);
   }
+
 
   async function getMovies(page) {
     scrollTo(0, 0);
@@ -52,60 +56,28 @@ function App() {
     dispatch(setMovies(request.data));
   }
 
+
   useEffect(() => {
     getMovies(page);
   }, [page]);
-
-  useEffect(() => {
-  
-  }, [moviesInStore.moviesSearch]);
 
   return (
     <>
       <NavBar />
       <Div>
-       
         <Routes>
           <Route path="/" element={<Home movies={moviesInStore.moviesView} />} />
           <Route path="/favs" element={<Home movies={moviesFavs} />} />
-          <Route path="/search" element={<Home movies={moviesInStore.moviesSearch} />} />
-
-        </Routes>
-       
+        </Routes>       
         <FloatButtonBtn disp={btnUp} onClick={() => toUp()}>
           <FloatButtonImg src={arrow} />
-        </FloatButtonBtn>
-       
+        </FloatButtonBtn>       
         {moviesInStore.from !== "search" ? (
           <NumsPagesContainer>
-            <Button onClick={() => turnPage("s")}>Start</Button>
-            <NumPage
-              disp={page - 1 > 0 ? "" : "none"}
-              onClick={() => turnPage(page - 1)}
-            >
-
-              {page - 1 >= 1 ? page - 1 : null}{" "}
-            </NumPage>
-            <NumPage
-              col={"red"}
-              disp={page !== 1 ? "" : "none"}
-              onClick={() => turnPage(page)}
-            >
-
-              {page !== 1 ? page : null}{" "}
-            </NumPage>
-            <NumPage
-              disp={page + 1 > 500 ? "none" : ""}
-              onClick={() => turnPage(page + 1)}
-            >
-
-              {page + 1 > 500 ? null : page + 1}{" "}
-            </NumPage>
-            <Button onClick={() => turnPage("e")}>End</Button>
+            <Button onClick={() => turnPage("-")}>Prev</Button>
+            <Button onClick={() => turnPage("+")}>Next</Button>
           </NumsPagesContainer>
         ) : null}
-
-
       </Div>
     </>
   );

@@ -11,8 +11,8 @@ import {setSearchs} from '../../Redux/Actions'
 
 import icon from "../Imgs/iconpng.png";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
-import { Router } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 
 function NavBar() {
   let [search, setSearch] = useState("");
@@ -38,17 +38,16 @@ function NavBar() {
     <>
       <Nav>
         <Div>
-          <NavImg src={icon} />
-        </Div>
-        
-        <Div>
-          <NavLink to="/">Home</NavLink>                              
+          <NavLink to="/">    
+            <NavImg src={icon} />
+          </NavLink>      
+        </Div>        
+        <Div>                        
           <NavLink to="/favs">Favs</NavLink>                              
         </Div>
-
         <Div margL="auto" > 
           <NavInput onChange={handleChange} value={search} />
-          <NavButton onClick={handleSubmit}  >♥</NavButton>
+          <NavButton onClick={handleSubmit}  >🔎</NavButton>
         </Div>
       </Nav>
  

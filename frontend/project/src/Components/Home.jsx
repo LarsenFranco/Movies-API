@@ -1,22 +1,19 @@
 import MovieCard from "./MovieCard";
 import { Div, Text, Grid } from "../Elements/HomeMovie";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-
-
 function Home(props) {
   let {results, from, movies} = props.movies;
   let [title,setTitle]=useState("Most popular")
-//  console.log(props)
+
 useEffect(() => {
   const pathname = window.location.pathname
   if(pathname === "/favs"){
   setTitle("Favorites")
   }else{
-    setTitle("Most popular")
+    if(from==="search"){
+      setTitle("Coincidences")
+    }
   }
- 
- 
 }, [props])
 
 
