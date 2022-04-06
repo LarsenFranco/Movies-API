@@ -31,11 +31,12 @@ const moviesToRender = (state = pelis, action) => {
     default: return state;
 
 
-    case "setSearchs":  
-        // moviesSearch.push({...action.payload})
-        state={...state,moviesView:action.payload}
+    case "setSearchs":
+     
+        moviesSearch=action.payload
+        state={...state,moviesSearch}
         console.log(state)     
-    
+      
       return state;
   }
 }

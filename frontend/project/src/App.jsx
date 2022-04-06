@@ -36,7 +36,7 @@ function App() {
         break;
     }
   };
-
+  
   window.onscroll = function () {
     if (window.pageYOffset >= 400) {
       setBtnUp("");
@@ -68,11 +68,13 @@ function App() {
         <Routes>
           <Route path="/" element={<Home movies={moviesInStore.moviesView} />} />
           <Route path="/favs" element={<Home movies={moviesFavs} />} />
+          <Route path="/search" element={<Home movies={moviesInStore.moviesSearch} />} />
         </Routes>       
         <FloatButtonBtn disp={btnUp} onClick={() => toUp()}>
           <FloatButtonImg src={arrow} />
         </FloatButtonBtn>       
-        {moviesInStore.from !== "search" ? (
+        
+        {moviesInStore.moviesSearch.from !== "search" ? (
           <NumsPagesContainer>
             <Button onClick={() => turnPage("-")}>Prev</Button>
             <Button onClick={() => turnPage("+")}>Next</Button>

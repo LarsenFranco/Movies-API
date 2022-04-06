@@ -22,7 +22,8 @@ function NavBar() {
   async function getSearch(str) {
     scrollTo(0, 0);
     const request = await axios.get(`http://localhost:8000/search?search=${str}`);
-    dispatch(setSearchs({from:"search",...request.data}))       
+    dispatch(setSearchs({from:"search",...request.data}))
+
   }
 
   function handleChange(e) {
@@ -47,7 +48,11 @@ function NavBar() {
         </Div>
         <Div margL="auto" > 
           <NavInput onChange={handleChange} value={search} />
-          <NavButton onClick={handleSubmit}  >🔎</NavButton>
+          <NavLink    to="/search">
+             <NavButton onClick={handleSubmit}>🔎</NavButton>
+          </NavLink>
+         
+             
         </Div>
       </Nav>
  
